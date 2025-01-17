@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Registro de Funcionarios</title>
+  <link rel="stylesheet" href="{% static 'style/registrarse.css' %}">
+</head>
+<body class="dark-mode">
+  <button class="theme-toggle">Cambiar Tema</button>
+  <form class="form" id="registration-form">
+    <p class="title">Registro de Funcionarios</p>
+    <p class="message">Por favor, complete los datos para el registro.</p>
+
+    <div class="flex">
+      <div class="input-group">
+        <label for="firstname">
+          <span>Nombre</span>
+          <input class="input" type="text" id="firstname" name="firstname" placeholder="Nombres" required>
+        </label>
+      </div>
+
+      <br>
+
+      <div class="input-group">
+        <label for="lastname">
+          <span>Apellido</span>
+          <input class="input" type="text" id="lastname" name="lastname" placeholder="Apellidos" required>
+        </label>
+      </div>
+    </div>
+
+    <div class ='rut'>
+        <label for="rut">
+            <span>RUT</span>
+            <input class="input" type="text" id="rut" name="rut" placeholder="Ej: 12345678" required>
+          </label>
+    </div>
+
+
+    <div class="email">
+        <label for="email">
+            <span>Correo Electrónico</span>
+            <input class="input" type="email" id="email" name="email" placeholder="nickname@tudominio.cl" required>
+          </label>
+    </div>
+
+    <div class="password">
+        <label for="password">
+            <span>Contraseña</span>
+            <input class="input" type="password" id="password" name="password" placeholder="Contraseña" required>
+        </label>
+    </div>
+
+    <div class="confirm-password">
+        <label for="confirm-password">
+            <span>Confirmar Contraseña</span>
+            <input class="input" type="password" id="confirm-password" name="confirm-password" placeholder="Confirmar Contraseña" required>
+          </label>
+    </div>
+
+    <div class="phone">
+        <label for="phone">
+            <span>Teléfono móvil personal</span>
+            <input class="input" type="tel" id="phone" name="phone" placeholder="Teléfono móvil personal" required>
+          </label>
+    </div>
+
+    <div class="profession">
+        <label for="profession">
+            <span>Profesión u Oficio</span>
+            <input class="input" type="text" id="profession" name="profession" placeholder="Profesión u Oficio" required>
+          </label>
+    </div>
+
+    <button class="submit" type="submit">Enviar</button>
+    <p class="signin">¿Ya tienes una cuenta? <a href="#">Inicia sesión</a></p>
+  </form>
+
+  <script>
+    const themeToggle = document.querySelector('.theme-toggle');
+    const body = document.body;
+
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      body.classList.toggle('light-mode');
+      themeToggle.textContent = body.classList.contains('dark-mode') ? 'Cambiar a Claro' : 'Cambiar a Oscuro';
+    });
+  </script>
+</body>
+</html>
