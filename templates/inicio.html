@@ -52,72 +52,73 @@
         </div>
     </nav>
 
-    <img class="letters mt-40" src="{% static 'img/letters.png' %}">
 
-    <br>
-    <br>
-    <br>
 
-    <div class="container mt-4">
-        <!-- Imagen del doctor con ajustes para que se vea grande y ocupe todo el círculo -->
-        <div class="text-center mb-6">
-            <img src="{% static 'img/cesfam.png' %}" alt="Doctor" class="w-40 h-40 rounded-full border-4 border-white shadow-lg mx-auto object-cover">
-        </div>
     
-        <h2 class="text-3xl font-extrabold text-center text-blue-100 mb-6" style="text-shadow: 
-    3px 3px 5px rgba(0, 0, 0, 0.3),  /* sombra principal sutil */
-    0 0 15px rgba(0, 0, 0, 0.2),    /* sombra difusa para resaltar */
-    0 0 15px rgba(255, 255, 255, 0.6), /* resplandor azul */
-    0 0 15px rgb(255, 255, 255), /* resplandor más fuerte */
-    0 0 60px rgb(255, 255, 255); /* resplandor aún más intenso */
-">Bienvenido al Intranet SaludPaillaco</h2>
+    <br>
+    <br>
 
-        <br>
+
+    <br>
         <br>
     
         <!-- Formulario Iniciar Sesión con fondo gris oscuro y bordes sombreados -->
-        <div class="form-container bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 p-8 mt-3 rounded-lg shadow-xl border-2 border-gray-600 max-w-md mx-auto">
-            <h3 class="text-2xl font-semibold text-white text-center mb-8">Iniciar Sesión</h3>
-            <form action="/login/" method="POST" class="space-y-6">
+        <div class="form-container bg-sky-100 p-6 mt-6 rounded-lg shadow-xl border-2 border-gray-300 max-w-sm mr-auto">
+            <div class="text-center mb-6">
+                <!-- Imagen del CESFAM con bordes mejorados -->
+                <img src="{% static 'img/cesfam.png' %}" alt="CESFAM Logo" class="w-24 h-24 rounded-full border-4 border-indigo-600 shadow-2xl mx-auto object-cover">
+            </div>
+        
+            <!-- Título con sombra y mejor contraste -->
+            <h2 class="text-3xl font-extrabold text-center text-gray-800 mb-6" style="text-shadow: 0 2px 6px rgba(0, 0, 0, 0.15), 0 0 25px rgba(0, 0, 255, 0.2), 0 0 50px rgba(0, 0, 255, 0.3);">
+                Bienvenido al Intranet SaludPaillaco
+            </h2>
+        
+            <h3 class="text-xl font-semibold text-center text-gray-700 mb-6">Iniciar Sesión</h3>
+        
+            <form action="/login/" method="POST" class="space-y-5">
                 {% csrf_token %}
-                
+        
                 <!-- Campo RUT -->
-                <div class="mb-6">
-                    <label for="rut" class="block text-sm font-medium text-white mb-2">RUT:</label>
+                <div class="mb-4">
+                    <label for="rut" class="block text-sm font-medium text-gray-700 mb-2">RUT:</label>
                     <div class="relative">
-                        <i class="fas fa-id-card absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-400"></i>
-                        <input type="text" id="rut" name="rut" class="w-full pl-10 pr-4 py-2 text-gray-900 bg-white border-2 border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Ingrese su RUT" required>
+                        <i class="fas fa-id-card absolute left-3 top-1/2 transform -translate-y-1/2 text-indigo-500"></i>
+                        <input type="text" id="rut" name="rut" class="w-full pl-10 pr-4 py-2 text-gray-900 bg-gray-100 border-2 border-indigo-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-md" placeholder="Ingrese su RUT" required>
                     </div>
                 </div>
-
-                <br>
-                
+        
                 <!-- Campo Contraseña -->
-                <div class="mb-6">
-                    <label for="password" class="block text-sm font-medium text-white mb-2">Contraseña:</label>
+                <div class="mb-5">
+                    <label for="password" class="block text-sm font-medium text-gray-700 mb-2">Contraseña:</label>
                     <div class="relative">
-                        <i class="fas fa-lock absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-400"></i>
-                        <input type="password" id="password" name="password" class="w-full pl-10 pr-4 py-2 text-gray-900 bg-white border-2 border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Ingrese su contraseña" required>
+                        <i class="fas fa-lock absolute left-3 top-1/2 transform -translate-y-1/2 text-indigo-500"></i>
+                        <input type="password" id="password" name="password" class="w-full pl-10 pr-4 py-2 text-gray-900 bg-gray-100 border-2 border-indigo-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-md" placeholder="Ingrese su contraseña" required>
                     </div>
                 </div>
-
-                <br>
-                
-                <!-- Botón Iniciar Sesión con icono -->
-                <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold text-lg hover:bg-blue-500 transition-all duration-300">
+        
+                <!-- Botón Iniciar Sesión con sombra -->
+                <button type="submit" class="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold text-lg hover:bg-indigo-500 transition-all duration-300 shadow-xl">
                     <i class="fas fa-sign-in-alt mr-2"></i> Iniciar Sesión
                 </button>
             </form>
-
-            <br>
-    
+        
             <!-- Enlaces de registro y recuperación -->
-            <div class="text-center mt-4 text-white">
-                <p>¿No tienes una cuenta? <a href="{% url 'registrarse' %}" class="text-blue-300 hover:underline"><i class="fas fa-user-plus"></i> Regístrate aquí</a></p>
-                <p><a href="/recuperar-contraseña/" class="text-blue-300 hover:underline"><i class="fas fa-key"></i> ¿Olvidaste tu contraseña?</a></p>
+            <div class="text-center mt-4 text-gray-700">
+                <p>¿No tienes una cuenta? <a href="{% url 'registrarse' %}" class="text-indigo-400 hover:underline"><i class="fas fa-user-plus"></i> Regístrate aquí</a></p>
+                <p><a href="/recuperar-contraseña/" class="text-indigo-400 hover:underline"><i class="fas fa-key"></i> ¿Olvidaste tu contraseña?</a></p>
             </div>
         </div>
-    </div>
+
+        <div class="container-letters flex justify-center relative">
+            <img class="letters absolute top-[-700px] w-[36%] h-auto mt-40 hidden lg:block" src="{% static 'img/letters.png' %}">
+        </div>
+        
+        
+        
+        
+        
+        
     
 
     <br>
